@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameEvent: MonoBehaviour
+public abstract class GameEvent: MonoBehaviour
 {
     public string command = "Talk";
     public Vector3 popupOffset;
+    public bool hasDialog = false;
     public Dialog dialog;
     // Start is called before the first frame update
     void Start()
