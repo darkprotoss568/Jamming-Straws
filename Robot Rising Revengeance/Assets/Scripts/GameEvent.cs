@@ -6,7 +6,7 @@ public abstract class GameEvent: MonoBehaviour
 {
     public string command = "Talk";
     public Vector3 popupOffset;
-    public bool hasBeenActivated = false;
+    protected bool hasBeenActivated = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -51,7 +51,8 @@ public abstract class GameEvent: MonoBehaviour
 [System.Serializable]
 public class Dialog
 {
-    bool PlayerSide = true;
+    public bool playerSide = true;
     public string speakerName;
     public string text;
+
 }

@@ -5,30 +5,64 @@ using UnityEngine;
 public class UpgradeEvent : GameEvent
 {
     public bool hasDialog = false;
-    public Dialog dialog;
-    public UpgradeType updateType;
+    public Dialog[] dialog;
+    public UpgradeType upgradeType;
+    public int currentLineIndex = 0;
+    public int lineIndexToGiveUpgrade = 0;
 
     public override void Activate()
     {
-        if (hasDialog)
+        if (!hasBeenActivated)
         {
+            if (hasDialog)
+            {
+                GameManager.Instance.player.SwitchPlayerState(PlayerState.DialogEvent);
+                GameManager.Instance.HUDScript.CreateDialogBox(this);
+            }
+            GameManager.Instance.HUDScript.DestroyPopup();
 
+            hasBeenActivated = true;
+        }
+    }
+
+    public void GivePlayerUpgrade()
+    {
+        switch (upgradeType)
+        {
+            case UpgradeType.ImprovedTankControl:
+                GameManager.Instance.player.tankMovableWhileRotating = true;
+                break;
+            case UpgradeType.Hack:
+                GameManager.Instance.player.hackUnlocked = true;
+                break;
+            case UpgradeType.Speed:
+                GameManager.Instance.player.sprintUnlocked = true;
+                break;
+            case UpgradeType.Weapon:
+                GameManager.Instance.player.hasWeapon = true;
+                break;
+            case UpgradeType.Leg:
+                GameManager.Instance.player.normalMovementUnlocked = true;
+                break;
+        }
+    }
+
+    public string ProgressDialogue()
+    {
+        currentLineIndex++;
+        if (currentLineIndex == lineIndexToGiveUpgrade)
+        {
+            GivePlayerUpgrade();
+        }
+
+        if (currentLineIndex >= dialog.Length)
+        {
+            return null;
         }
         else
         {
-            GameManager.Instance.HUDScript.DestroyPopup();
+            return dialog[currentLineIndex].text;
         }
-    }
-
-    private void GivePlayerUpgrade()
-    {
-
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
     }
 
     // Update is called once per frame
