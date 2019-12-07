@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class GameEvent: MonoBehaviour
+public class GameEvent: MonoBehaviour
 {
     public string command = "Talk";
+
     public Vector3 popupOffset;
-    protected bool hasBeenActivated = false;
+
+    public Dialog dialog;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,26 +21,31 @@ public abstract class GameEvent: MonoBehaviour
         
     }
 
-    public abstract void Activate();
+    public void Activate()
+    {
+
+    }
 
     public void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player" && !hasBeenActivated)
+        if (other.gameObject.tag == "Player")
         {
             GameManager.Instance.currentLinkedGameEvent = this;
             GameManager.Instance.HUDScript.CreateActionPopup(this);
+            Debug.Log("Linked");
         }
     }
 
     public void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "Player" && !hasBeenActivated)
+        if (other.gameObject.tag == "Player")
         {
             if (GameManager.Instance.currentLinkedGameEvent == this)
             {
                 GameManager.Instance.currentLinkedGameEvent = null;
                 GameManager.Instance.HUDScript.DestroyPopup();
             }
+            Debug.Log("Unlinked");
         }
     }
 
@@ -51,8 +58,6 @@ public abstract class GameEvent: MonoBehaviour
 [System.Serializable]
 public class Dialog
 {
-    public bool playerSide = true;
     public string speakerName;
     public string text;
-
 }
