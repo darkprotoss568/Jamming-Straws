@@ -25,8 +25,6 @@ public class ControlScript : MonoBehaviour
     public bool tankMovableWhileRotating = false;
     public bool normalMovementUnlocked = false;
     public bool sprintUnlocked = false;
-    public bool hackUnlocked = false;
-    public bool hasWeapon = false;
 
     // Start is called before the first frame update
     void Start()
@@ -47,11 +45,9 @@ public class ControlScript : MonoBehaviour
                 HandleWeaponControl();
                 break;
             case PlayerState.DialogEvent:
-                CheckDialogInput();
                 break;
         }
     }
-
     private void HandleWeaponControl()
     {
         if (hasWeapon && Input.GetButtonDown("Shoot"))
@@ -73,7 +69,7 @@ public class ControlScript : MonoBehaviour
     {
         if (Input.GetButtonDown("Interact"))
         {
-            GameManager.Instance.ActivateEvent();
+
         }
     }
 
@@ -83,7 +79,7 @@ public class ControlScript : MonoBehaviour
         float hor = Input.GetAxis("Horizontal");
 
         float maxSpeed = normalSpeed;
-        if (Input.GetButton("Sprint") && sprintUnlocked)
+        if (Input.GetButtonDown("Sprint"))
         {
             maxSpeed = sprintSpeed;
         }
@@ -118,6 +114,10 @@ public class ControlScript : MonoBehaviour
                     currentSpeed = Mathf.Clamp(currentSpeed - deceleration * Time.deltaTime, 0, maxSpeed);
                 }
             }
+            else
+            {
+
+            }
 
         }
         else
@@ -132,7 +132,7 @@ public class ControlScript : MonoBehaviour
             else
                 currentSpeed = Mathf.Clamp(currentSpeed - deceleration * Time.deltaTime, 0, maxSpeed);
         }
-        
+
         playerTransform.eulerAngles = new Vector3(0, Vector3.SignedAngle(currentDirection, new Vector3(0, 0, 1), -Vector3.up), 0);
 
     }
@@ -140,22 +140,6 @@ public class ControlScript : MonoBehaviour
     public void SwitchPlayerState(PlayerState newState)
     {
         currentState = newState;
-    }
-
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "ConveyerBelt")
-        {
-
-        }
-    }
-
-    void OnTriggerExit(Collider other)
-    {
-        if (other.tag == "ConveyerBelt")
-        {
-
-        }
     }
 }
 
