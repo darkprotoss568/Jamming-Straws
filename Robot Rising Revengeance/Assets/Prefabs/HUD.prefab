@@ -111,4 +111,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3797cd686e181ac4482f9073892b4c39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogObjectPrefab: {fileID: 0}
+  dialogBoxObjectPrefab: {fileID: 0}
+  actionPopupObjPrefab: {fileID: 9057143531487529699, guid: eb83562e4d0da6a4587fe9470a4b9e69,
+    type: 3}
