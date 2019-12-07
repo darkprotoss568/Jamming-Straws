@@ -40,11 +40,11 @@ public class HUDCanvas : MonoBehaviour
     public void CreateDialogBox(UpgradeEvent e)
     {
         currentDialogBox = Instantiate(dialogBoxObjectPrefab, this.transform);
-        CenterUIElementOnEvent(currentDialogBox, e, e.dialog[e.currentLineIndex].playerSide);
+        CenterUIElementOnEvent(currentDialogBox, e, e.dialog[0].playerSide);
 
-        FlipDialogBox(e.dialog[e.currentLineIndex].playerSide);
+        FlipDialogBox(e.dialog[0].playerSide);
 
-        currentDialogBox.transform.Find("DialogText").GetComponent<Text>().text = e.dialog[e.currentLineIndex].text;
+        currentDialogBox.transform.Find("DialogText").GetComponent<Text>().text = e.ProgressDialogue();
 
     }
 
@@ -72,8 +72,8 @@ public class HUDCanvas : MonoBehaviour
         if (newLine != null)
         {
             currentDialogBox.transform.Find("DialogText").GetComponent<Text>().text = newLine;
-            CenterUIElementOnEvent(currentDialogBox, currEvent, currEvent.dialog[currEvent.currentLineIndex].playerSide);
-            FlipDialogBox(currEvent.dialog[currEvent.currentLineIndex].playerSide);
+            CenterUIElementOnEvent(currentDialogBox, currEvent, currEvent.dialog[currEvent.CurrentLineIndex].playerSide);
+            FlipDialogBox(currEvent.dialog[currEvent.CurrentLineIndex].playerSide);
         }
         else
         {
