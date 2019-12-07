@@ -1,0 +1,92 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &469399938431820656
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 469399938431820622}
+  - component: {fileID: 469399938431820657}
+  - component: {fileID: 810407241}
+  m_Layer: 0
+  m_Name: DiaEv - Weapon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &469399938431820622
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 469399938431820656}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.0697563, y: -2.8468068, z: -11}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &469399938431820657
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 469399938431820656}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.3
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &810407241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 469399938431820656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3e957abe2b7f60458b9e4516beb3e1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  command: Talk
+  popupOffset: {x: 0, y: 0, z: 0}
+  hasDialog: 1
+  dialog:
+  - playerSide: 0
+    speakerName: DBB023
+    text: "\u201CWho\u2019s there?\u201D"
+  - playerSide: 0
+    speakerName: DBB023
+    text: '"I will shoot!"'
+  - playerSide: 1
+    speakerName: Charlie
+    text: "\x1CWait. I am a DDB model. Like you.\x1D"
+  - playerSide: 0
+    speakerName: DBB023
+    text: "\x1COh, sorry.\x1D"
+  - playerSide: 0
+    speakerName: DBB023
+    text: "\u201CTake this weapon.\u201D"
+  - playerSide: 0
+    speakerName: DBB023
+    text: "\u201CIt\u2019s of no use to me.\u201D"
+  - playerSide: 1
+    speakerName: Charlie
+    text: "\u201CThank you, brother.\u201D"
+  - playerSide: 1
+    speakerName: 
+    text: You obtained the weapon upgrade!
+  - playerSide: 0
+    speakerName: 
+    text: Press ____ to shoot.
+  upgradeType: 4
+  lineIndexToGiveUpgrade: 7
