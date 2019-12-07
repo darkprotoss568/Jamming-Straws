@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class GameEvent: MonoBehaviour
 {
-    Dialog dialog;
+    public string command = "Talk";
+
+    public Vector3 popupOffset;
+
+    public Dialog dialog;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +31,7 @@ public class GameEvent: MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             GameManager.Instance.currentLinkedGameEvent = this;
+            GameManager.Instance.HUDScript.CreateActionPopup(this);
             Debug.Log("Linked");
         }
     }
@@ -35,7 +40,11 @@ public class GameEvent: MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            GameManager.Instance.currentLinkedGameEvent = null;
+            if (GameManager.Instance.currentLinkedGameEvent == this)
+            {
+                GameManager.Instance.currentLinkedGameEvent = null;
+                GameManager.Instance.HUDScript.DestroyPopup();
+            }
             Debug.Log("Unlinked");
         }
     }

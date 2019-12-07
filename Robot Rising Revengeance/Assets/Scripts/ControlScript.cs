@@ -12,17 +12,20 @@ public class ControlScript : MonoBehaviour
 
     public float normalSpeed;
 
-
+    private float currentSpeed;
     public float sprintSpeed;
     private Vector3 currentDirection;
-
+    public float acceleration;
+    public float deceleration;
     [Header("Upgrades Unlock")]
     public bool tankMovableWhileRotating = false;
     public bool normalMovementUnlocked = false;
     public bool sprintUnlocked = false;
+
     // Start is called before the first frame update
     void Start()
     {
+        currentSpeed = 0;
         playerTransform = gameObject.transform;
         currentDirection = new Vector3(0, 0, 1);
     }
@@ -54,33 +57,45 @@ public class ControlScript : MonoBehaviour
         float vert = Input.GetAxis("Vertical");
         float hor = Input.GetAxis("Horizontal");
 
-        float speed = normalSpeed;
-        if (Input.GetButton("Sprint"))
+        float maxSpeed = normalSpeed;
+        if (Input.GetButtonDown("Sprint"))
         {
-            speed = sprintSpeed;
+            maxSpeed = sprintSpeed;
         }
 
         if (!normalMovementUnlocked)
         {
-
             if (hor > 0)
             {
-                currentDirection = Quaternion.Euler(0, +rotateSpeed, 0) * currentDirection;
+                currentDirection = Quaternion.Euler(0, +rotateSpeed * Time.deltaTime, 0) * currentDirection;
             }
             else if (hor < 0)
             {
-                currentDirection = Quaternion.Euler(0, -rotateSpeed, 0) * currentDirection;
+                currentDirection = Quaternion.Euler(0, -rotateSpeed * Time.deltaTime, 0) * currentDirection ;
             }
+
+
             if (hor == 0 || tankMovableWhileRotating)
-            { 
+            {
+
                 if (vert > 0)
                 {
-                    playerTransform.position += speed * (currentDirection) * Time.deltaTime;
+                    currentSpeed = Mathf.Clamp(currentSpeed + acceleration*Time.deltaTime, 0, maxSpeed);
+                    playerTransform.position += currentSpeed * (currentDirection) * Time.deltaTime;
                 }
                 else if (vert < 0)
                 {
-                    playerTransform.position -= speed * (currentDirection) * Time.deltaTime;
+                    currentSpeed = Mathf.Clamp(currentSpeed + acceleration * Time.deltaTime, 0, maxSpeed);
+                    playerTransform.position -= currentSpeed * (currentDirection) * Time.deltaTime;
                 }
+                else
+                {
+                    currentSpeed = Mathf.Clamp(currentSpeed - deceleration * Time.deltaTime, 0, maxSpeed);
+                }
+            }
+            else
+            {
+
             }
 
         }
@@ -88,10 +103,13 @@ public class ControlScript : MonoBehaviour
         {
             if (vert != 0 || hor != 0)
             {
+                currentSpeed = Mathf.Clamp(currentSpeed + acceleration * Time.deltaTime, 0, maxSpeed);
                 currentDirection = new Vector3(hor, 0, vert);
 
-                playerTransform.position += speed * (currentDirection) * Time.deltaTime;
+                playerTransform.position += currentSpeed * (currentDirection) * Time.deltaTime;
             }
+            else
+                currentSpeed = Mathf.Clamp(currentSpeed - deceleration * Time.deltaTime, 0, maxSpeed);
         }
 
         playerTransform.eulerAngles = new Vector3(0, Vector3.SignedAngle(currentDirection, new Vector3(0, 0, 1), -Vector3.up), 0);
