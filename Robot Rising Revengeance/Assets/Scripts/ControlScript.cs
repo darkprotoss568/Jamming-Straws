@@ -7,16 +7,20 @@ public class ControlScript : MonoBehaviour
 {
     private PlayerState currentState = PlayerState.Free;
     public float rotateSpeed;
-
     private Transform playerTransform;
 
+    [Header("Movement")]
     public float normalSpeed;
-
     private float currentSpeed;
     public float sprintSpeed;
     private Vector3 currentDirection;
     public float acceleration;
     public float deceleration;
+
+    [Header("Weapon")]
+    public Transform weaponMuzzleTransform = null;
+    public GameObject projectilePrefab = null;
+
     [Header("Upgrades Unlock")]
     public bool tankMovableWhileRotating = false;
     public bool normalMovementUnlocked = false;
@@ -40,10 +44,20 @@ public class ControlScript : MonoBehaviour
             case PlayerState.Free:
                 HandleMovementControls();
                 CheckInteractionInput();
+                HandleWeaponControl();
                 break;
             case PlayerState.DialogEvent:
                 CheckDialogInput();
                 break;
+        }
+    }
+
+    private void HandleWeaponControl()
+    {
+        if (hasWeapon && Input.GetButtonDown("Shoot"))
+        {
+            ProjectileScript newProjectile = Instantiate(projectilePrefab, weaponMuzzleTransform.position, Quaternion.identity).GetComponent<ProjectileScript>();
+            newProjectile.Initialize(currentDirection);
         }
     }
 
