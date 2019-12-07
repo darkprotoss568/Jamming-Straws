@@ -32,13 +32,8 @@ public class HUDCanvas : MonoBehaviour
         DestroyPopup();
 
         currentActionPopup = Instantiate(actionPopupObjPrefab, this.transform);
-        RectTransform r = currentActionPopup.GetComponent<RectTransform>();
-        Vector2 newPos;
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(canvasRect,cam.WorldToScreenPoint(e.transform.position) + e.popupOffset, null, out newPos);
-        Debug.Log(r.localPosition);
-        newPos.x = Mathf.Clamp(newPos.x, -1980/2 + r.sizeDelta.x / 2, 1980/2 - r.sizeDelta.x / 2);
-        newPos.y = Mathf.Clamp(newPos.y, -1080/2 + r.sizeDelta.y / 2,  1080/2 - r.sizeDelta.y / 2);
-        r.localPosition = newPos;
+        CenterUIElementOnEvent(currentActionPopup, e);
+
         currentActionPopup.transform.Find("ActionText").GetComponent<Text>().text = e.command;
     }
 
@@ -47,6 +42,18 @@ public class HUDCanvas : MonoBehaviour
     
     }
 
+    public void CenterUIElementOnEvent(GameObject obj, GameEvent e)
+    {
+        RectTransform r = obj.GetComponent<RectTransform>();
+        Vector2 newPos;
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(canvasRect, cam.WorldToScreenPoint(e.transform.position) + e.popupOffset, null, out newPos);
+        Debug.Log(r.localPosition);
+        newPos.x = Mathf.Clamp(newPos.x, -1980 / 2 + r.sizeDelta.x / 2, 1980 / 2 - r.sizeDelta.x / 2);
+        newPos.y = Mathf.Clamp(newPos.y, -1080 / 2 + r.sizeDelta.y / 2, 1080 / 2 - r.sizeDelta.y / 2);
+
+        r.localPosition = newPos;
+
+    }
 
     public void DestroyPopup()
     {

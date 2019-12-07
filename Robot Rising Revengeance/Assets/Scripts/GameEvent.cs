@@ -6,8 +6,7 @@ public abstract class GameEvent: MonoBehaviour
 {
     public string command = "Talk";
     public Vector3 popupOffset;
-    public bool hasDialog = false;
-    public Dialog dialog;
+    public bool hasBeenActivated = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,14 +19,11 @@ public abstract class GameEvent: MonoBehaviour
         
     }
 
-    public void Activate()
-    {
-
-    }
+    public abstract void Activate();
 
     public void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player" && !hasBeenActivated)
         {
             GameManager.Instance.currentLinkedGameEvent = this;
             GameManager.Instance.HUDScript.CreateActionPopup(this);
@@ -36,7 +32,7 @@ public abstract class GameEvent: MonoBehaviour
 
     public void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player" && !hasBeenActivated)
         {
             if (GameManager.Instance.currentLinkedGameEvent == this)
             {
@@ -55,6 +51,7 @@ public abstract class GameEvent: MonoBehaviour
 [System.Serializable]
 public class Dialog
 {
+    bool PlayerSide = true;
     public string speakerName;
     public string text;
 }
