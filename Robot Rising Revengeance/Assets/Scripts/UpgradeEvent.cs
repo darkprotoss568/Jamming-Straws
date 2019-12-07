@@ -10,7 +10,6 @@ public class UpgradeEvent : GameEvent
     public int currentLineIndex = 0;
     public int lineIndexToGiveUpgrade = 0;
 
-
     public override void Activate()
     {
         if (!hasBeenActivated)
@@ -20,12 +19,9 @@ public class UpgradeEvent : GameEvent
                 GameManager.Instance.player.SwitchPlayerState(PlayerState.DialogEvent);
                 GameManager.Instance.HUDScript.CreateDialogBox(this);
             }
-            else
-            {
-                GameManager.Instance.HUDScript.DestroyPopup();
-            }
+            GameManager.Instance.HUDScript.DestroyPopup();
 
-            hasBeenActivated = false;
+            hasBeenActivated = true;
         }
     }
 
@@ -51,7 +47,7 @@ public class UpgradeEvent : GameEvent
         }
     }
 
-    public int ProgressDialogue()
+    public string ProgressDialogue()
     {
         currentLineIndex++;
         if (currentLineIndex == lineIndexToGiveUpgrade)
@@ -59,7 +55,14 @@ public class UpgradeEvent : GameEvent
             GivePlayerUpgrade();
         }
 
-        return currentLineIndex;
+        if (currentLineIndex >= dialog.Length)
+        {
+            return null;
+        }
+        else
+        {
+            return dialog[currentLineIndex].text;
+        }
     }
 
     // Update is called once per frame

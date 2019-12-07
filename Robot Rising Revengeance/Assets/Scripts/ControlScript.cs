@@ -118,8 +118,7 @@ public class ControlScript : MonoBehaviour
             else
                 currentSpeed = Mathf.Clamp(currentSpeed - deceleration * Time.deltaTime, 0, maxSpeed);
         }
-
-        Debug.Log(currentSpeed);
+        
         playerTransform.eulerAngles = new Vector3(0, Vector3.SignedAngle(currentDirection, new Vector3(0, 0, 1), -Vector3.up), 0);
 
     }

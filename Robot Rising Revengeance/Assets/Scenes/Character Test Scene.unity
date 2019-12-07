@@ -395,37 +395,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1 &810407240 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 469399938431820656, guid: a266172221a92d746a435ac055fb5aea,
-    type: 3}
-  m_PrefabInstance: {fileID: 469399937347281262}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &810407241
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 810407240}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3e957abe2b7f60458b9e4516beb3e1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  command: Talk
-  popupOffset: {x: 0, y: 0, z: 0}
-  hasDialog: 1
-  dialog:
-  - playerSide: 1
-    speakerName: aaaaaaaaaaaa
-    text: aaaaaaaaaaaaaaa
-  - playerSide: 0
-    speakerName: bbbbbbbbbbbbb
-    text: bbbbbbbbbbbbbbbbbbbb
-  upgradeType: 0
-  currentLineIndex: 0
-  lineIndexToGiveUpgrade: 0
 --- !u!1 &831820525 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7614789809569235987, guid: cee2f7edb18b3b9489dc115f8e98cdaa,
@@ -636,6 +605,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: HUD
       objectReference: {fileID: 0}
+    - target: {fileID: 370337046403351355, guid: b58673de6f4c16e4e9ea7f54bab1208a,
+        type: 3}
+      propertyPath: dialogBoxObjectPrefab
+      value: 
+      objectReference: {fileID: 9057143531487529699, guid: e8e2e7536e351684c838f7db7be9319b,
+        type: 3}
     - target: {fileID: 370337046403351351, guid: b58673de6f4c16e4e9ea7f54bab1208a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -741,12 +716,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 370337046403351355, guid: b58673de6f4c16e4e9ea7f54bab1208a,
-        type: 3}
-      propertyPath: dialogBoxObjectPrefab
-      value: 
-      objectReference: {fileID: 9057143531487529699, guid: e8e2e7536e351684c838f7db7be9319b,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b58673de6f4c16e4e9ea7f54bab1208a, type: 3}
 --- !u!1001 &469399937347281262
