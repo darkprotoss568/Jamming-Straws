@@ -5,30 +5,61 @@ using UnityEngine;
 public class UpgradeEvent : GameEvent
 {
     public bool hasDialog = false;
-    public Dialog dialog;
-    public UpgradeType updateType;
+    public Dialog[] dialog;
+    public UpgradeType upgradeType;
+    public int currentLineIndex = 0;
+    public int lineIndexToGiveUpgrade = 0;
+
 
     public override void Activate()
     {
-        if (hasDialog)
+        if (!hasBeenActivated)
         {
+            if (hasDialog)
+            {
+                GameManager.Instance.player.SwitchPlayerState(PlayerState.DialogEvent);
+                GameManager.Instance.HUDScript.CreateDialogBox(this);
+            }
+            else
+            {
+                GameManager.Instance.HUDScript.DestroyPopup();
+            }
 
-        }
-        else
-        {
-            GameManager.Instance.HUDScript.DestroyPopup();
+            hasBeenActivated = false;
         }
     }
 
-    private void GivePlayerUpgrade()
+    public void GivePlayerUpgrade()
     {
-
+        switch (upgradeType)
+        {
+            case UpgradeType.ImprovedTankControl:
+                GameManager.Instance.player.tankMovableWhileRotating = true;
+                break;
+            case UpgradeType.Hack:
+                GameManager.Instance.player.hackUnlocked = true;
+                break;
+            case UpgradeType.Speed:
+                GameManager.Instance.player.sprintUnlocked = true;
+                break;
+            case UpgradeType.Weapon:
+                GameManager.Instance.player.hasWeapon = true;
+                break;
+            case UpgradeType.Leg:
+                GameManager.Instance.player.normalMovementUnlocked = true;
+                break;
+        }
     }
 
-    // Start is called before the first frame update
-    void Start()
+    public int ProgressDialogue()
     {
-        
+        currentLineIndex++;
+        if (currentLineIndex == lineIndexToGiveUpgrade)
+        {
+            GivePlayerUpgrade();
+        }
+
+        return currentLineIndex;
     }
 
     // Update is called once per frame

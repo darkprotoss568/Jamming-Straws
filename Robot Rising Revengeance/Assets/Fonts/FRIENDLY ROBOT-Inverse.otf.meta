@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 1b151f0e84a7e9a4e860df6aadbc340e
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: FRIENDLY ROBOT-Inverse
+  fontNames:
+  - FRIENDLY ROBOT-Inverse
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

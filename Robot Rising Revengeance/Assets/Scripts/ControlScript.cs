@@ -21,6 +21,8 @@ public class ControlScript : MonoBehaviour
     public bool tankMovableWhileRotating = false;
     public bool normalMovementUnlocked = false;
     public bool sprintUnlocked = false;
+    public bool hackUnlocked = false;
+    public bool hasWeapon = false;
 
     // Start is called before the first frame update
     void Start()
@@ -40,7 +42,16 @@ public class ControlScript : MonoBehaviour
                 CheckInteractionInput();
                 break;
             case PlayerState.DialogEvent:
+                CheckDialogInput();
                 break;
+        }
+    }
+
+    private void CheckDialogInput()
+    {
+        if (Input.GetButtonDown("Interact"))
+        {
+            GameManager.Instance.HUDScript.AdvanceDialog();
         }
     }
 
@@ -48,7 +59,7 @@ public class ControlScript : MonoBehaviour
     {
         if (Input.GetButtonDown("Interact"))
         {
-
+            GameManager.Instance.ActivateEvent();
         }
     }
 
@@ -58,7 +69,7 @@ public class ControlScript : MonoBehaviour
         float hor = Input.GetAxis("Horizontal");
 
         float maxSpeed = normalSpeed;
-        if (Input.GetButtonDown("Sprint"))
+        if (Input.GetButton("Sprint") && sprintUnlocked)
         {
             maxSpeed = sprintSpeed;
         }
@@ -93,10 +104,6 @@ public class ControlScript : MonoBehaviour
                     currentSpeed = Mathf.Clamp(currentSpeed - deceleration * Time.deltaTime, 0, maxSpeed);
                 }
             }
-            else
-            {
-
-            }
 
         }
         else
@@ -112,6 +119,7 @@ public class ControlScript : MonoBehaviour
                 currentSpeed = Mathf.Clamp(currentSpeed - deceleration * Time.deltaTime, 0, maxSpeed);
         }
 
+        Debug.Log(currentSpeed);
         playerTransform.eulerAngles = new Vector3(0, Vector3.SignedAngle(currentDirection, new Vector3(0, 0, 1), -Vector3.up), 0);
 
     }
