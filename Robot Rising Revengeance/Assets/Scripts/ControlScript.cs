@@ -102,6 +102,22 @@ public class ControlScript : MonoBehaviour
     {
         currentState = newState;
     }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "ConveyerBelt")
+        {
+
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "ConveyerBelt")
+        {
+
+        }
+    }
 }
 
 
