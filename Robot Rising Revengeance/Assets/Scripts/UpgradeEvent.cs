@@ -7,17 +7,23 @@ public class UpgradeEvent : GameEvent
     public bool hasDialog = false;
     public Dialog[] dialog;
     public UpgradeType upgradeType;
-    public int currentLineIndex = 0;
+    private int currentLineIndex = -1;
     public int lineIndexToGiveUpgrade = 0;
+
+    public int CurrentLineIndex { get => currentLineIndex;  }
 
     public override void Activate()
     {
         if (!hasBeenActivated)
         {
-            if (hasDialog)
+            if (dialog.Length > 0)
             {
                 GameManager.Instance.player.SwitchPlayerState(PlayerState.DialogEvent);
                 GameManager.Instance.HUDScript.CreateDialogBox(this);
+            }
+            else
+            {
+                GivePlayerUpgrade();
             }
             GameManager.Instance.HUDScript.DestroyPopup();
 
@@ -61,7 +67,13 @@ public class UpgradeEvent : GameEvent
         }
         else
         {
-            return dialog[currentLineIndex].text;
+            Dialog currentLine = dialog[currentLineIndex];
+            string text = "";
+            if (currentLine.speakerName != "")
+            {
+                text += currentLine.speakerName + ": ";
+            }
+            return text + currentLine.text;
         }
     }
 
@@ -70,10 +82,13 @@ public class UpgradeEvent : GameEvent
     {
         
     }
+
+
 }
 
 public enum UpgradeType
 {
+    None,
     ImprovedTankControl,
     Hack,
     Speed,
