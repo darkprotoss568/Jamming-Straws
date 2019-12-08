@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RubbleExplosition : MonoBehaviour
 {
-    void OnCollisionEnter(Collider other)
+    void OnCollisionEnter(Collision other)
     {
         if(other.gameObject.tag == "Projectile")
         {

@@ -13,6 +13,12 @@ public class HUDCanvas : MonoBehaviour
     public GameObject creditScreen;
     private Camera cam;
     private RectTransform canvasRect;
+    [Header("Button Prompt")]
+    public GameObject tankMovementPrompt;
+    public GameObject wheelMovementPrompt;
+    public GameObject boostPrompt;
+    public GameObject shootingPrompt;
+    public GameObject hoverMovementPrompt;
     // Start is called before the first frame update
     void Start()
     {

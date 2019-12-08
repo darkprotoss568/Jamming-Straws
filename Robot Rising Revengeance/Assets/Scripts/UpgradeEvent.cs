@@ -40,6 +40,8 @@ public class UpgradeEvent : GameEvent
                 player.tankMovableWhileRotating = true;
                 player.wheelsPart.SetActive(true);
                 player.trackPart.SetActive(false);
+                GameManager.Instance.HUDScript.tankMovementPrompt.SetActive(false);
+                GameManager.Instance.HUDScript.wheelMovementPrompt.SetActive(true);
                 break;
             case UpgradeType.Hack:
                 player.hackUnlocked = true;
@@ -48,15 +50,19 @@ public class UpgradeEvent : GameEvent
             case UpgradeType.Speed:
                 player.sprintUnlocked = true;
                 player.enginePart.SetActive(true);
+                GameManager.Instance.HUDScript.boostPrompt.SetActive(true);
                 break;
             case UpgradeType.Weapon:
                 player.hasWeapon = true;
                 player.launcherPart.SetActive(true);
+                GameManager.Instance.HUDScript.shootingPrompt.SetActive(true);
                 break;
             case UpgradeType.Leg:
                 player.normalMovementUnlocked = true;
                 player.hoverPart.SetActive(true);
                 player.wheelsPart.SetActive(false);
+                GameManager.Instance.HUDScript.hoverMovementPrompt.SetActive(true);
+                GameManager.Instance.HUDScript.wheelMovementPrompt.SetActive(false);
                 break;
         }
     }
