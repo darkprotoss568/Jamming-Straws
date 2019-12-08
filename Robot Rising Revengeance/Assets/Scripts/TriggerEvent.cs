@@ -14,6 +14,8 @@ public class TriggerEvent : GameEvent
             {
                 if (!GameManager.Instance.player.hackUnlocked)
                 {
+                    GameManager.Instance.HUDScript.ChangeCurrentPopupText("You need the hack module");
+                    // Play sound
                     return;
                 }
             }

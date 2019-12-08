@@ -48,6 +48,9 @@ public class ControlScript : MonoBehaviour
             case PlayerState.DialogEvent:
                 CheckDialogInput();
                 break;
+            case PlayerState.EndGame:
+                CheckGameResetInput();
+                break;
         }
     }
 
@@ -60,6 +63,13 @@ public class ControlScript : MonoBehaviour
         }
     }
 
+    private void CheckGameResetInput()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("Interact"))
+        {
+            GameManager.Instance.ResetGame();
+        }
+    }
     private void HandlePauseButtonInput()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -179,5 +189,6 @@ public class ControlScript : MonoBehaviour
 public enum PlayerState
 {
     Free,
-    DialogEvent
+    DialogEvent,
+    EndGame
 }
