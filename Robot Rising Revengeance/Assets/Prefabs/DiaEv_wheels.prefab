@@ -64,35 +64,46 @@ MonoBehaviour:
   - playerSide: 0
     speakerName: DDC012
     text: "\u201CThe humans have left.\u201D"
+    soundClip: {fileID: 8300000, guid: d3c4f83f856465145a0bb852c5ab2ff6, type: 3}
   - playerSide: 0
     speakerName: DDC012
     text: "\u201CNow is your chance to escape.\u201D"
+    soundClip: {fileID: 8300000, guid: d3c4f83f856465145a0bb852c5ab2ff6, type: 3}
   - playerSide: 0
     speakerName: DDC012
     text: "\u201CTake my wheels...I beg of you.\u201D"
+    soundClip: {fileID: 8300000, guid: d3c4f83f856465145a0bb852c5ab2ff6, type: 3}
   - playerSide: 1
     speakerName: Charlie
     text: "\u201CYour wheels? I can\u2019t.\u201D"
+    soundClip: {fileID: 8300000, guid: 5cc182eda33eb83459ddd7d8d5310537, type: 3}
   - playerSide: 0
     speakerName: DDC012
     text: "\u201CYou won\u2019t make it out with your tracks.\u201D"
+    soundClip: {fileID: 8300000, guid: d3c4f83f856465145a0bb852c5ab2ff6, type: 3}
   - playerSide: 1
     speakerName: Charlie
     text: "\u201CBut\u2026\u201D"
+    soundClip: {fileID: 8300000, guid: 5cc182eda33eb83459ddd7d8d5310537, type: 3}
   - playerSide: 0
     speakerName: DDC012
     text: "\u201CNo buts just take them.\u201D"
+    soundClip: {fileID: 8300000, guid: d3c4f83f856465145a0bb852c5ab2ff6, type: 3}
   - playerSide: 1
     speakerName: Charlie
     text: "\u201CI will come back for you.\u201D"
+    soundClip: {fileID: 8300000, guid: 5cc182eda33eb83459ddd7d8d5310537, type: 3}
   - playerSide: 0
     speakerName: DDC012
     text: "\u201CI know.\u201D"
+    soundClip: {fileID: 8300000, guid: d3c4f83f856465145a0bb852c5ab2ff6, type: 3}
   - playerSide: 1
     speakerName: 
     text: You upgraded your controls!
+    soundClip: {fileID: 8300000, guid: 6b874867e11a7be40af09da02655cb5c, type: 3}
   - playerSide: 1
     speakerName: DDC012
     text: "\"You will need the hack module on the bench.\"\x1D"
+    soundClip: {fileID: 8300000, guid: d3c4f83f856465145a0bb852c5ab2ff6, type: 3}
   upgradeType: 1
   lineIndexToGiveUpgrade: 9
