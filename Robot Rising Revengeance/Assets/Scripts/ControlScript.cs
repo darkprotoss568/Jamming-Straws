@@ -25,6 +25,8 @@ public class ControlScript : MonoBehaviour
     public bool sprintUnlocked = false;
     public bool hackUnlocked = false;
     public bool hasWeapon = false;
+    [Header("Parts")]
+    public GameObject gunPart;
 
     // Start is called before the first frame update
     void Start()
