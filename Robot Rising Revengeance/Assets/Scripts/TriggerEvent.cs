@@ -19,6 +19,7 @@ public class TriggerEvent : GameEvent
             }
             linkedEvent.Activate();
             GameManager.Instance.currentLinkedGameEvent = linkedEvent;
+            GameManager.Instance.HUDScript.DestroyPopup();
             hasBeenActivated = true;
         }
     }
