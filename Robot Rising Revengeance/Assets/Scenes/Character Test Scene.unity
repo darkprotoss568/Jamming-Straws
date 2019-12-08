@@ -413,6 +413,133 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1 &532791915
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 532791917}
+  - component: {fileID: 532791916}
+  m_Layer: 0
+  m_Name: SoundEffectsSource
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &532791916
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 532791915}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &532791917
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 532791915}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 963194228}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -535,7 +662,7 @@ GameObject:
   - component: {fileID: 963194226}
   - component: {fileID: 963194229}
   m_Layer: 0
-  m_Name: Main Camera
+  m_Name: GameCamera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -602,7 +729,9 @@ Transform:
   m_LocalRotation: {x: 0.7274196, y: 0.00000013621187, z: -0.00000012849205, w: 0.686193}
   m_LocalPosition: {x: -3.330507e-13, y: 11.143004, z: -9.957217}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1704119011}
+  - {fileID: 532791917}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
@@ -792,6 +921,104 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1704119010
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1704119011}
+  m_Layer: 0
+  m_Name: BGMSource
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1704119011
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1704119010}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 963194228}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1943251877 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 469399938431820656, guid: a266172221a92d746a435ac055fb5aea,
+    type: 3}
+  m_PrefabInstance: {fileID: 469399937347281262}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1943251878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1943251877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3e957abe2b7f60458b9e4516beb3e1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  command: Talk
+  popupOffset: {x: 0, y: 0, z: 0}
+  hasDialog: 1
+  dialog:
+  - playerSide: 0
+    speakerName: DDC012
+    text: "\u201CThe humans have left.\u201D"
+    soundClip: {fileID: 8300000, guid: 4386e4ea0b72ccc488c4eda88cbc70a1, type: 3}
+  - playerSide: 0
+    speakerName: DDC012
+    text: "\u201CNow is your chance to escape.\u201D"
+    soundClip: {fileID: 0}
+  - playerSide: 0
+    speakerName: DDC012
+    text: "\u201CTake my wheels...I beg of you.\u201D"
+    soundClip: {fileID: 0}
+  - playerSide: 1
+    speakerName: Charlie
+    text: "\u201CYour wheels? I can\u2019t.\u201D"
+    soundClip: {fileID: 0}
+  - playerSide: 0
+    speakerName: DDC012
+    text: "\u201CYou won\u2019t make it out with your tracks.\u201D"
+    soundClip: {fileID: 0}
+  - playerSide: 1
+    speakerName: Charlie
+    text: "\u201CBut\u2026\u201D"
+    soundClip: {fileID: 0}
+  - playerSide: 0
+    speakerName: DDC012
+    text: "\u201CNo buts just take them.\u201D"
+    soundClip: {fileID: 0}
+  - playerSide: 1
+    speakerName: Charlie
+    text: "\u201CI will come back for you.\u201D"
+    soundClip: {fileID: 0}
+  - playerSide: 0
+    speakerName: DDC012
+    text: "\u201CI know.\u201D"
+    soundClip: {fileID: 0}
+  - playerSide: 1
+    speakerName: 
+    text: You upgraded your controls!
+    soundClip: {fileID: 0}
+  - playerSide: 1
+    speakerName: DDC012
+    text: "\"You will need the hack module on the bench.\"\x1D"
+    soundClip: {fileID: 0}
+  upgradeType: 1
+  lineIndexToGiveUpgrade: 9
 --- !u!114 &1987587813 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 370337046403351355, guid: b58673de6f4c16e4e9ea7f54bab1208a,
@@ -1054,7 +1281,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 469399938431820623, guid: a266172221a92d746a435ac055fb5aea, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a266172221a92d746a435ac055fb5aea, type: 3}
 --- !u!1001 &1133486633111754781
 PrefabInstance:
@@ -1271,5 +1499,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 831820528}
+    - target: {fileID: 8213393738749469277, guid: e8aab85a4e16ce24aa238fe4fd4236ab,
+        type: 3}
+      propertyPath: SoundEffects
+      value: 
+      objectReference: {fileID: 532791916}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8aab85a4e16ce24aa238fe4fd4236ab, type: 3}

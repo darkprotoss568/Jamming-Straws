@@ -66,9 +66,14 @@ public class ControlScript : MonoBehaviour
         {
             if (Time.timeScale == 0)
             {
+                GameManager.Instance.HUDScript.pauseScreen.SetActive(false);
                 Time.timeScale = 1;
-            } else
-            Time.timeScale = 0;
+            }
+            else
+            {
+                GameManager.Instance.HUDScript.pauseScreen.SetActive(true);
+                Time.timeScale = 0;
+            }
         }
     }
 

@@ -54,5 +54,6 @@ public class Dialog
     public bool playerSide = true;
     public string speakerName;
     public string text;
+    public AudioClip soundClip;
 
 }
