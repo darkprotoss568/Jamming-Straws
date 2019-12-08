@@ -68,6 +68,10 @@ public class UpgradeEvent : GameEvent
         else
         {
             Dialog currentLine = dialog[currentLineIndex];
+            if (currentLine.soundClip != null)
+            {
+                GameManager.Instance.PlaySoundEffect(currentLine.soundClip);
+            }
             string text = "";
             if (currentLine.speakerName != "")
             {

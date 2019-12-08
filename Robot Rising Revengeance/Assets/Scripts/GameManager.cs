@@ -8,7 +8,8 @@ public class GameManager : MonoBehaviour
     public GameEvent currentLinkedGameEvent;
     public ControlScript player;
     public HUDCanvas HUDScript;
-
+    public AudioSource BGM;
+    public AudioSource SoundEffects;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,5 +28,10 @@ public class GameManager : MonoBehaviour
         {
             currentLinkedGameEvent.Activate();
         }
+    }
+
+    public void PlaySoundEffect(AudioClip clip)
+    {
+        SoundEffects.PlayOneShot(clip);
     }
 }

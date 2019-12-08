@@ -7,7 +7,7 @@ public class HUDCanvas : MonoBehaviour
 {
     public GameObject dialogBoxObjectPrefab;
     public GameObject actionPopupObjPrefab;
-
+    public GameObject pauseScreen;
     private GameObject currentActionPopup;
     private GameObject currentDialogBox;
 
