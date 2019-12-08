@@ -10,10 +10,11 @@ public class EndGameEvent : GameEvent
         {
             // EndGameSequence
             GameManager.Instance.HUDScript.DestroyPopup();
+            GameManager.Instance.player.SwitchPlayerState(PlayerState.EndGame);
         }
         else
         {
-            GameManager.Instance.HUDScript.ChangeCurrentPopupText("You need the hack module");
+            GameManager.Instance.HUDScript.ChangeCurrentPopupText("You can't get up the stairs");
         }
 
     }
