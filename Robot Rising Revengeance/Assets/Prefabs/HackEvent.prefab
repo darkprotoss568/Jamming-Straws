@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 886321099783675199}
   - component: {fileID: 1915497672208453343}
+  - component: {fileID: 5612667766400633689}
   m_Layer: 0
-  m_Name: HackEvent (Missing Prefab)
+  m_Name: HackEvent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47,3 +48,16 @@ MonoBehaviour:
   popupOffset: {x: 0, y: 0, z: 0}
   linkedEvent: {fileID: 0}
   requiresHackUnlock: 1
+--- !u!135 &5612667766400633689
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7400807716289283982}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
