@@ -7,24 +7,22 @@ public class ControlScript : MonoBehaviour
 {
     private PlayerState currentState = PlayerState.Free;
     public float rotateSpeed;
+
     private Transform playerTransform;
 
-    [Header("Movement")]
     public float normalSpeed;
+
     private float currentSpeed;
     public float sprintSpeed;
     private Vector3 currentDirection;
     public float acceleration;
     public float deceleration;
-
-    [Header("Weapon")]
-    public Transform weaponMuzzleTransform = null;
-    public GameObject projectilePrefab = null;
-
     [Header("Upgrades Unlock")]
     public bool tankMovableWhileRotating = false;
     public bool normalMovementUnlocked = false;
     public bool sprintUnlocked = false;
+    public bool hackUnlocked = false;
+    public bool hasWeapon = false;
 
     // Start is called before the first frame update
     void Start()
@@ -42,18 +40,10 @@ public class ControlScript : MonoBehaviour
             case PlayerState.Free:
                 HandleMovementControls();
                 CheckInteractionInput();
-                HandleWeaponControl();
                 break;
             case PlayerState.DialogEvent:
+                CheckDialogInput();
                 break;
-        }
-    }
-    private void HandleWeaponControl()
-    {
-        if (hasWeapon && Input.GetButtonDown("Shoot"))
-        {
-            ProjectileScript newProjectile = Instantiate(projectilePrefab, weaponMuzzleTransform.position, Quaternion.identity).GetComponent<ProjectileScript>();
-            newProjectile.Initialize(currentDirection);
         }
     }
 
@@ -69,7 +59,7 @@ public class ControlScript : MonoBehaviour
     {
         if (Input.GetButtonDown("Interact"))
         {
-
+            GameManager.Instance.ActivateEvent();
         }
     }
 
@@ -79,7 +69,7 @@ public class ControlScript : MonoBehaviour
         float hor = Input.GetAxis("Horizontal");
 
         float maxSpeed = normalSpeed;
-        if (Input.GetButtonDown("Sprint"))
+        if (Input.GetButton("Sprint") && sprintUnlocked)
         {
             maxSpeed = sprintSpeed;
         }
@@ -114,10 +104,6 @@ public class ControlScript : MonoBehaviour
                     currentSpeed = Mathf.Clamp(currentSpeed - deceleration * Time.deltaTime, 0, maxSpeed);
                 }
             }
-            else
-            {
-
-            }
 
         }
         else
@@ -132,7 +118,7 @@ public class ControlScript : MonoBehaviour
             else
                 currentSpeed = Mathf.Clamp(currentSpeed - deceleration * Time.deltaTime, 0, maxSpeed);
         }
-
+        
         playerTransform.eulerAngles = new Vector3(0, Vector3.SignedAngle(currentDirection, new Vector3(0, 0, 1), -Vector3.up), 0);
 
     }
@@ -140,6 +126,22 @@ public class ControlScript : MonoBehaviour
     public void SwitchPlayerState(PlayerState newState)
     {
         currentState = newState;
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "ConveyerBelt")
+        {
+
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "ConveyerBelt")
+        {
+
+        }
     }
 }
 

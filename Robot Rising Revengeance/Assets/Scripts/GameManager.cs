@@ -6,8 +6,9 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     public GameEvent currentLinkedGameEvent;
-
+    public ControlScript player;
     public HUDCanvas HUDScript;
+
     // Start is called before the first frame update
     void Start()
     {
