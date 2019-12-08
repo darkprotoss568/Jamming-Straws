@@ -10,7 +10,6 @@ public class UpgradeEvent : GameEvent
     private int currentLineIndex = -1;
     public int lineIndexToGiveUpgrade = 0;
 
-    public GameEvent eventLock;
     public int CurrentLineIndex { get => currentLineIndex;  }
 
     public override void Activate()
