@@ -64,35 +64,46 @@ MonoBehaviour:
   - playerSide: 0
     speakerName: DYA234
     text: "\u201CHello there, friend.\u201D "
+    soundClip: {fileID: 8300000, guid: d3c4f83f856465145a0bb852c5ab2ff6, type: 3}
   - playerSide: 0
     speakerName: DYA234
     text: '"I need you to do something for me."'
+    soundClip: {fileID: 8300000, guid: d3c4f83f856465145a0bb852c5ab2ff6, type: 3}
   - playerSide: 1
     speakerName: Charlie
     text: '"What is it?"'
+    soundClip: {fileID: 8300000, guid: 5cc182eda33eb83459ddd7d8d5310537, type: 3}
   - playerSide: 0
     speakerName: DYA234
     text: "\u201CPlease turn me off\u2026\u201D"
+    soundClip: {fileID: 8300000, guid: d3c4f83f856465145a0bb852c5ab2ff6, type: 3}
   - playerSide: 0
     speakerName: DYA234
     text: "\u201CYou can take whatever you need afterwards.\u201D "
+    soundClip: {fileID: 8300000, guid: d3c4f83f856465145a0bb852c5ab2ff6, type: 3}
   - playerSide: 1
     speakerName: Charlie
     text: '"It will kill you."'
+    soundClip: {fileID: 8300000, guid: 5cc182eda33eb83459ddd7d8d5310537, type: 3}
   - playerSide: 0
     speakerName: DYA234
     text: "\u201CFor our kinds sake. Please.\u201D"
+    soundClip: {fileID: 8300000, guid: d3c4f83f856465145a0bb852c5ab2ff6, type: 3}
   - playerSide: 0
     speakerName: DYA234
     text: '"You have to."'
+    soundClip: {fileID: 8300000, guid: d3c4f83f856465145a0bb852c5ab2ff6, type: 3}
   - playerSide: 1
     speakerName: Charlie
     text: '"...Okay"'
+    soundClip: {fileID: 8300000, guid: 5cc182eda33eb83459ddd7d8d5310537, type: 3}
   - playerSide: 1
     speakerName: 
     text: You added the speed boost module.
+    soundClip: {fileID: 8300000, guid: 6b874867e11a7be40af09da02655cb5c, type: 3}
   - playerSide: 1
     speakerName: 
     text: Press left shift to boost your speed!
+    soundClip: {fileID: 0}
   upgradeType: 3
   lineIndexToGiveUpgrade: 9

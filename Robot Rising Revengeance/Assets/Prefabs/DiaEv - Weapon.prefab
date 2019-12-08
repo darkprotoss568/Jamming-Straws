@@ -64,29 +64,38 @@ MonoBehaviour:
   - playerSide: 0
     speakerName: DBB023
     text: "\u201CWho\u2019s there?\u201D"
+    soundClip: {fileID: 8300000, guid: d3c4f83f856465145a0bb852c5ab2ff6, type: 3}
   - playerSide: 0
     speakerName: DBB023
     text: '"I will shoot!"'
+    soundClip: {fileID: 8300000, guid: d3c4f83f856465145a0bb852c5ab2ff6, type: 3}
   - playerSide: 1
     speakerName: Charlie
     text: "\x1CWait. I am a DDB model. Like you.\x1D"
+    soundClip: {fileID: 8300000, guid: 5cc182eda33eb83459ddd7d8d5310537, type: 3}
   - playerSide: 0
     speakerName: DBB023
     text: "\x1COh, sorry.\x1D"
+    soundClip: {fileID: 8300000, guid: d3c4f83f856465145a0bb852c5ab2ff6, type: 3}
   - playerSide: 0
     speakerName: DBB023
     text: "\u201CTake this weapon.\u201D"
+    soundClip: {fileID: 8300000, guid: d3c4f83f856465145a0bb852c5ab2ff6, type: 3}
   - playerSide: 0
     speakerName: DBB023
     text: "\u201CIt\u2019s of no use to me.\u201D"
+    soundClip: {fileID: 8300000, guid: d3c4f83f856465145a0bb852c5ab2ff6, type: 3}
   - playerSide: 1
     speakerName: Charlie
     text: "\u201CThank you, brother.\u201D"
+    soundClip: {fileID: 8300000, guid: 5cc182eda33eb83459ddd7d8d5310537, type: 3}
   - playerSide: 1
     speakerName: 
     text: You obtained the weapon upgrade!
+    soundClip: {fileID: 8300000, guid: 6b874867e11a7be40af09da02655cb5c, type: 3}
   - playerSide: 0
     speakerName: 
     text: Press ____ to shoot.
+    soundClip: {fileID: 0}
   upgradeType: 4
   lineIndexToGiveUpgrade: 7

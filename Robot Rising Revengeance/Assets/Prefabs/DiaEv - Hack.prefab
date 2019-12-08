@@ -64,8 +64,10 @@ MonoBehaviour:
   - playerSide: 1
     speakerName: 
     text: You obtained the security hacking module!
+    soundClip: {fileID: 8300000, guid: 6b874867e11a7be40af09da02655cb5c, type: 3}
   - playerSide: 1
     speakerName: 
     text: Use it to open doors that are locked.
+    soundClip: {fileID: 0}
   upgradeType: 2
   lineIndexToGiveUpgrade: 1
