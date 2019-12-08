@@ -10,6 +10,7 @@ public class EndGameEvent : GameEvent
         {
             // EndGameSequence
             GameManager.Instance.HUDScript.DestroyPopup();
+            GameManager.Instance.HUDScript.creditScreen.SetActive(true);
             GameManager.Instance.player.SwitchPlayerState(PlayerState.EndGame);
         }
         else

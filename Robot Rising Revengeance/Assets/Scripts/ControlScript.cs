@@ -31,7 +31,7 @@ public class ControlScript : MonoBehaviour
     public GameObject launcherPart;
     public GameObject wheelsPart;
     public GameObject hoverPart;
-
+    public GameObject trackPart;
     // Start is called before the first frame update
     void Start()
     {

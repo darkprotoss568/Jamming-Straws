@@ -10,7 +10,7 @@ public class HUDCanvas : MonoBehaviour
     public GameObject pauseScreen;
     private GameObject currentActionPopup;
     private GameObject currentDialogBox;
-
+    public GameObject creditScreen;
     private Camera cam;
     private RectTransform canvasRect;
     // Start is called before the first frame update

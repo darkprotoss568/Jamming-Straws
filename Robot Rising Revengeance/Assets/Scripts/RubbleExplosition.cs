@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class RubbleExplosition : MonoBehaviour
 {
-    void OnCollision(other collider)
+    void OnCollisionEnter(Collider other)
     {
-        if(other.tag = "projectile")
+        if(other.gameObject.tag == "Projectile")
         {
-            Destory(gameObject);
+            Destroy(gameObject);
         }
     }
 }
