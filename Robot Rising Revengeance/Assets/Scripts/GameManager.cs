@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
 
     public void PlaySoundEffect(AudioClip clip)
     {
+        SoundEffects.Stop();
         SoundEffects.PlayOneShot(clip);
     }
 }
