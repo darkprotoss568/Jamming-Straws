@@ -951,6 +951,74 @@ Transform:
   m_Father: {fileID: 963194228}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1943251877 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 469399938431820656, guid: a266172221a92d746a435ac055fb5aea,
+    type: 3}
+  m_PrefabInstance: {fileID: 469399937347281262}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1943251878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1943251877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3e957abe2b7f60458b9e4516beb3e1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  command: Talk
+  popupOffset: {x: 0, y: 0, z: 0}
+  hasDialog: 1
+  dialog:
+  - playerSide: 0
+    speakerName: DDC012
+    text: "\u201CThe humans have left.\u201D"
+    soundClip: {fileID: 8300000, guid: 4386e4ea0b72ccc488c4eda88cbc70a1, type: 3}
+  - playerSide: 0
+    speakerName: DDC012
+    text: "\u201CNow is your chance to escape.\u201D"
+    soundClip: {fileID: 0}
+  - playerSide: 0
+    speakerName: DDC012
+    text: "\u201CTake my wheels...I beg of you.\u201D"
+    soundClip: {fileID: 0}
+  - playerSide: 1
+    speakerName: Charlie
+    text: "\u201CYour wheels? I can\u2019t.\u201D"
+    soundClip: {fileID: 0}
+  - playerSide: 0
+    speakerName: DDC012
+    text: "\u201CYou won\u2019t make it out with your tracks.\u201D"
+    soundClip: {fileID: 0}
+  - playerSide: 1
+    speakerName: Charlie
+    text: "\u201CBut\u2026\u201D"
+    soundClip: {fileID: 0}
+  - playerSide: 0
+    speakerName: DDC012
+    text: "\u201CNo buts just take them.\u201D"
+    soundClip: {fileID: 0}
+  - playerSide: 1
+    speakerName: Charlie
+    text: "\u201CI will come back for you.\u201D"
+    soundClip: {fileID: 0}
+  - playerSide: 0
+    speakerName: DDC012
+    text: "\u201CI know.\u201D"
+    soundClip: {fileID: 0}
+  - playerSide: 1
+    speakerName: 
+    text: You upgraded your controls!
+    soundClip: {fileID: 0}
+  - playerSide: 1
+    speakerName: DDC012
+    text: "\"You will need the hack module on the bench.\"\x1D"
+    soundClip: {fileID: 0}
+  upgradeType: 1
+  lineIndexToGiveUpgrade: 9
 --- !u!114 &1987587813 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 370337046403351355, guid: b58673de6f4c16e4e9ea7f54bab1208a,
@@ -1039,11 +1107,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: HUD
       objectReference: {fileID: 0}
-    - target: {fileID: 370337046403351355, guid: b58673de6f4c16e4e9ea7f54bab1208a,
-        type: 3}
-      propertyPath: pauseScreen
-      value: 
-      objectReference: {fileID: 370337045101555167}
     - target: {fileID: 370337046403351351, guid: b58673de6f4c16e4e9ea7f54bab1208a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1149,19 +1212,8 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7208317569467406238, guid: b58673de6f4c16e4e9ea7f54bab1208a,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b58673de6f4c16e4e9ea7f54bab1208a, type: 3}
---- !u!1 &370337045101555167 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7208317569467406238, guid: b58673de6f4c16e4e9ea7f54bab1208a,
-    type: 3}
-  m_PrefabInstance: {fileID: 370337045101555166}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &469399937347281262
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1229,7 +1281,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 469399938431820623, guid: a266172221a92d746a435ac055fb5aea, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a266172221a92d746a435ac055fb5aea, type: 3}
 --- !u!1001 &1133486633111754781
 PrefabInstance:

@@ -28,11 +28,11 @@ public class HUDCanvas : MonoBehaviour
 
     public void CreateActionPopup(GameEvent e)
     {
-       
         DestroyPopup();
 
         currentActionPopup = Instantiate(actionPopupObjPrefab, this.transform);
-        CenterUIElementOnEvent(currentActionPopup, e);
+        CenterUIElementOnEvent(currentActionPopup, e, false);
+        //Debug.Log("ePos" + e.transform.position);
 
         currentActionPopup.transform.Find("ActionText").GetComponent<Text>().text = e.command;
     }
@@ -53,6 +53,7 @@ public class HUDCanvas : MonoBehaviour
         RectTransform r = obj.GetComponent<RectTransform>();
         Vector2 newPos;
         Vector3 targetPosition = e.transform.position;
+        //Debug.Log("target: " + targetPosition);
         if (onPlayer)
         {
             targetPosition = GameManager.Instance.player.transform.position;

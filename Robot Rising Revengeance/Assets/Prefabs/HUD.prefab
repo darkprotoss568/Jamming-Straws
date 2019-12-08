@@ -112,9 +112,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3797cd686e181ac4482f9073892b4c39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogBoxObjectPrefab: {fileID: 0}
+  dialogBoxObjectPrefab: {fileID: 9057143531487529699, guid: 11052def50f690f41ad2c245b42dfc3c,
+    type: 3}
   actionPopupObjPrefab: {fileID: 9057143531487529699, guid: eb83562e4d0da6a4587fe9470a4b9e69,
     type: 3}
+  pauseScreen: {fileID: 7208317569467406238}
 --- !u!1 &7208317569467406238
 GameObject:
   m_ObjectHideFlags: 0
@@ -132,7 +134,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8366248541640776118
 RectTransform:
   m_ObjectHideFlags: 0
