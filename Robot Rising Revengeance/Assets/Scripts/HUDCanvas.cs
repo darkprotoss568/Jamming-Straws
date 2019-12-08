@@ -89,6 +89,11 @@ public class HUDCanvas : MonoBehaviour
         }
     }
 
+    public void TogglePrompts(bool val)
+    {
+        transform.Find("ButtonPrompts").gameObject.SetActive(val);
+    }
+
     private void FlipDialogBox(bool playerSide)
     {
         Transform parent = currentDialogBox.gameObject.transform;
