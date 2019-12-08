@@ -80,8 +80,6 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-<<<<<<< HEAD
-=======
   - serializedVersion: 2
     buildTarget: Windows Store Apps
     maxTextureSize: 2048
@@ -148,7 +146,6 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
->>>>>>> feature/PauseFunction
   spriteSheet:
     serializedVersion: 2
     sprites: []
