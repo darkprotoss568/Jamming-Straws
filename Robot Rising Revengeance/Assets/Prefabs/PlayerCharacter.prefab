@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1434523409}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: muzzle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7614789809467063729}
   - component: {fileID: 7614789809467063728}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: New Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121,7 +121,7 @@ GameObject:
   - component: {fileID: 7614789809569235986}
   - component: {fileID: 7614789809569235991}
   - component: {fileID: 831820526}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PlayerCharacter
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -161,7 +161,7 @@ MonoBehaviour:
   sprintSpeed: 8
   acceleration: 3
   deceleration: 4
-  weaponMuzzleTransform: {fileID: 1434523409}
+  muzzleTransform: {fileID: 1434523409}
   projectilePrefab: {fileID: 6331848405869100913, guid: 335eb7326c04e0e46835a91455745a60,
     type: 3}
   tankMovableWhileRotating: 0

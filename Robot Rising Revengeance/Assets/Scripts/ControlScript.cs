@@ -9,14 +9,16 @@ public class ControlScript : MonoBehaviour
     public float rotateSpeed;
 
     private Transform playerTransform;
-
+    [Header("Movement")]
     public float normalSpeed;
-
     private float currentSpeed;
     public float sprintSpeed;
     private Vector3 currentDirection;
     public float acceleration;
     public float deceleration;
+    [Header("Weapon")]
+    public Transform muzzleTransform;
+    public GameObject projectilePrefab;
     [Header("Upgrades Unlock")]
     public bool tankMovableWhileRotating = false;
     public bool normalMovementUnlocked = false;
@@ -35,15 +37,38 @@ public class ControlScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        HandlePauseButtonInput();
         switch (currentState)
         {
             case PlayerState.Free:
                 HandleMovementControls();
                 CheckInteractionInput();
+                CheckWeaponFireInput();
                 break;
             case PlayerState.DialogEvent:
                 CheckDialogInput();
                 break;
+        }
+    }
+
+    private void CheckWeaponFireInput()
+    {
+        if (hasWeapon && Input.GetButtonDown("Shoot"))
+        {
+            ProjectileScript newProjectile = Instantiate(projectilePrefab, muzzleTransform.position, Quaternion.identity).GetComponent<ProjectileScript>();
+            newProjectile.Initialize(currentDirection);
+        }
+    }
+
+    private void HandlePauseButtonInput()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (Time.timeScale == 0)
+            {
+                Time.timeScale = 1;
+            } else
+            Time.timeScale = 0;
         }
     }
 
