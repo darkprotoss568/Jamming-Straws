@@ -10,6 +10,7 @@ public class UpgradeEvent : GameEvent
     private int currentLineIndex = -1;
     public int lineIndexToGiveUpgrade = 0;
 
+    public GameEvent eventLock;
     public int CurrentLineIndex { get => currentLineIndex;  }
 
     public override void Activate()
@@ -39,7 +40,7 @@ public class UpgradeEvent : GameEvent
             case UpgradeType.ImprovedTankControl:
                 player.tankMovableWhileRotating = true;
                 player.wheelsPart.SetActive(true);
-                player.AdjustPlayerHeight(5);
+                player.trackPart.SetActive(false);
                 break;
             case UpgradeType.Hack:
                 player.hackUnlocked = true;
@@ -56,7 +57,7 @@ public class UpgradeEvent : GameEvent
             case UpgradeType.Leg:
                 player.normalMovementUnlocked = true;
                 player.hoverPart.SetActive(true);
-                player.AdjustPlayerHeight(5);
+                player.wheelsPart.SetActive(false);
                 break;
         }
     }

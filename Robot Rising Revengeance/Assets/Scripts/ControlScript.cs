@@ -7,7 +7,7 @@ public class ControlScript : MonoBehaviour
 {
     private PlayerState currentState = PlayerState.Free;
     public float rotateSpeed;
-
+    private Rigidbody rb;
     private Transform playerTransform;
     [Header("Movement")]
     public float normalSpeed;
@@ -31,14 +31,14 @@ public class ControlScript : MonoBehaviour
     public GameObject launcherPart;
     public GameObject wheelsPart;
     public GameObject hoverPart;
-
+    public GameObject trackPart;
     // Start is called before the first frame update
     void Start()
     {
         currentSpeed = 0;
         playerTransform = gameObject.transform;
         //AdjustPlayerHeight(5);
-
+        rb = gameObject.GetComponent<Rigidbody>();
         currentDirection = new Vector3(0, 0, 1);
     }
 
@@ -60,8 +60,17 @@ public class ControlScript : MonoBehaviour
                 CheckGameResetInput();
                 break;
         }
+
+        Hax();
     }
 
+    public void Hax()
+    {
+        if (rb.velocity != Vector3.zero) 
+        {
+            rb.velocity = Vector3.zero;
+        }
+    }
     private void CheckWeaponFireInput()
     {
         if (hasWeapon && Input.GetButtonDown("Shoot"))

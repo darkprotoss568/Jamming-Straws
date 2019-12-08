@@ -29,13 +29,14 @@ public class ProjectileScript : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
+        if (collision.gameObject.tag == "Rubble")
+        {
+            Destroy(collision.gameObject);
+        }
         Destroy(gameObject);
+        //Debug.Log(collision.gameObject);
     }
 
-    void OnCollisionStay(Collision collision)
-    {
-        Destroy(gameObject);
-    }
 
     public void Initialize(Vector3 dir)
     {

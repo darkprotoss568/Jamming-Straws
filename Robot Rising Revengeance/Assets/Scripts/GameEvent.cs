@@ -8,6 +8,8 @@ public abstract class GameEvent: MonoBehaviour
     public Vector3 popupOffset;
     protected bool hasBeenActivated = false;
     // Start is called before the first frame update
+
+    public GameEvent eventLock;
     void Start()
     {
         
@@ -25,6 +27,13 @@ public abstract class GameEvent: MonoBehaviour
     {
         if (other.gameObject.tag == "Player" && !hasBeenActivated)
         {
+            if (eventLock != null)
+            {
+                if (!eventLock.hasBeenActivated)
+                {
+                    return;
+                }
+            }
             GameManager.Instance.currentLinkedGameEvent = this;
             GameManager.Instance.HUDScript.CreateActionPopup(this);
         }
