@@ -25,12 +25,20 @@ public class ControlScript : MonoBehaviour
     public bool sprintUnlocked = false;
     public bool hackUnlocked = false;
     public bool hasWeapon = false;
+    [Header("Parts")]
+    public GameObject hackingPart;
+    public GameObject enginePart;
+    public GameObject launcherPart;
+    public GameObject wheelsPart;
+    public GameObject hoverPart;
 
     // Start is called before the first frame update
     void Start()
     {
         currentSpeed = 0;
         playerTransform = gameObject.transform;
+        //AdjustPlayerHeight(5);
+
         currentDirection = new Vector3(0, 0, 1);
     }
 
@@ -85,6 +93,13 @@ public class ControlScript : MonoBehaviour
                 Time.timeScale = 0;
             }
         }
+    }
+
+    public void AdjustPlayerHeight(float newHeight)
+    {
+        Vector3 newPos = playerTransform.position;
+        newPos.y = newHeight;
+        playerTransform.position = newPos;
     }
 
     private void CheckDialogInput()

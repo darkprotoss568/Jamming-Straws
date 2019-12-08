@@ -33,22 +33,30 @@ public class UpgradeEvent : GameEvent
 
     public void GivePlayerUpgrade()
     {
+        ControlScript player = GameManager.Instance.player;
         switch (upgradeType)
         {
             case UpgradeType.ImprovedTankControl:
-                GameManager.Instance.player.tankMovableWhileRotating = true;
+                player.tankMovableWhileRotating = true;
+                player.wheelsPart.SetActive(true);
+                player.AdjustPlayerHeight(5);
                 break;
             case UpgradeType.Hack:
-                GameManager.Instance.player.hackUnlocked = true;
+                player.hackUnlocked = true;
+                player.hackingPart.SetActive(true);
                 break;
             case UpgradeType.Speed:
-                GameManager.Instance.player.sprintUnlocked = true;
+                player.sprintUnlocked = true;
+                player.enginePart.SetActive(true);
                 break;
             case UpgradeType.Weapon:
-                GameManager.Instance.player.hasWeapon = true;
+                player.hasWeapon = true;
+                player.launcherPart.SetActive(true);
                 break;
             case UpgradeType.Leg:
-                GameManager.Instance.player.normalMovementUnlocked = true;
+                player.normalMovementUnlocked = true;
+                player.hoverPart.SetActive(true);
+                player.AdjustPlayerHeight(5);
                 break;
         }
     }
