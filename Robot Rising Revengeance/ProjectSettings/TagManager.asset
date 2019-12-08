@@ -6,6 +6,7 @@ TagManager:
   tags:
   - ConveyerBelt
   - Projectile
+  - Rubble
   layers:
   - Default
   - TransparentFX
