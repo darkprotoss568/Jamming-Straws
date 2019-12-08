@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ProjectileScript : MonoBehaviour
 {
-    public float speed = 10;
+    public float speed = 30;
     private float currlifeTime = 0;
     public float lifeTime = 10;
     private Vector3 direction = Vector3.zero; 
@@ -39,6 +39,6 @@ public class ProjectileScript : MonoBehaviour
 
     public void Initialize(Vector3 dir)
     {
-        direction = dir;
+        direction = dir.normalized;
     }
 }

@@ -102,6 +102,15 @@ public class HUDCanvas : MonoBehaviour
             children[i].localScale = newScale;
         }
     }
+
+    public void ChangeCurrentPopupText(string newText)
+    {
+        if (currentActionPopup != null)
+        {
+            currentActionPopup.transform.Find("ActionText").GetComponent<Text>().text = newText;
+        }
+
+    }
     public void DestroyPopup()
     {
         if (currentActionPopup != null)
